@@ -1,0 +1,16 @@
+basepath: /Users/sharovatov/Documents/repos/my/shoppingList/
+
+load:
+
+# jQuery (library dependency)
+- js/lib/jQuery.1.7.1.js
+
+# sinon mocking framework (test dependency)
+- js/tests-rc/sinon.js
+
+# all js files
+- js/src/*.js
+
+# all tests
+- js/tests/*.js
+
