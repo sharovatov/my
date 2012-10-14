@@ -1,0 +1,15 @@
+basepath: D:\_repos\my\js_experiments\shared_workers\
+
+load:
+
+# files:
+
+# all js files
+- src/*.js
+
+# all test libraries (dependencies)
+- tests/lib/*.js
+
+# all test files
+- tests/src/*.js
+
