@@ -33,8 +33,6 @@ function processData(inputData) {
 		canvas = new Canvas(200,200),
 		shaky = require('./shaky.js');
 
-	console.log(Object.prototype.toString.call(canvas));
-
 	// draw the diagram on the specified canvas
 	shaky.drawDiagram(inputData, canvas);
 
