@@ -1,4 +1,4 @@
-/*global exports,module,window */
+/*global exports:true,module,window */
 (function (global){
 	"use strict";
 
@@ -48,8 +48,6 @@
 		this.pointTo = pointTo;
 		this.end = end;
 		this.color = color;
-
-		this.x0 = this.pointFrom.x;
 	}
 
 	/**
@@ -83,7 +81,7 @@
 		ctx.strokeStyle = this.color;
 		ctx.fillStyle = this.color;
 		ctx.beginPath();
-		ctx.updateXY(pointFrom);
+		ctx.setEndPoint(pointFrom);
 		ctx.lineTo(pointTo);
 		ctx.stroke();
 
@@ -116,127 +114,212 @@
 		ctx.fillText(this.text, calcedPoint.x, calcedPoint.y);
 	};
 
-	// Parses given ASCII art string into a list of figures.
-	function parseASCIIArt(string) {
-		var lines = string.split('\n'),
+	/**
+	 *	Parses given ASCII art string into a list of figures.
+	 *	@param {string} text ascii graphics text
+	 *	@return {array} array of Text or Line objects
+	 */
+	function parseASCIIArt(text) {
+		var lines = text.split('\n'),
 			height = lines.length,
+			// maximum line width
 			width = lines.reduce(function (w, line) { return Math.max(w, line.length); }, 0),
+			// Converts line's character to the direction of line's growth.
+			possibleDirections = { "-": new Point(1, 0), "|": new Point(0, 1)},
+			x1,
+			y1,
+			currentChar,
+			currentDirection,
+			currentLine,
+			color,
+			start,
+			end,
 		// Matrix containing ASCII art.
 			data = [],
-		// Converts line's character to the direction of line's growth.
-			dir = { "-": new Point(1, 0), "|": new Point(0, 1)},
-			figures = [], // List of extracted figures.
-			x,
-			y,
-			line;
+		// List of extracted figures.
+			figures = [];
 
 		// Convert strings into a matrix of characters.
-		for (y = 0; y < height; y += 1) {
-			line = lines[y];
-			data[y] = [];
-			for (x = 0; x < line.length; x += 1) {
-				data[y][x] = line[x];
-			}
-			for (x = line.length; x < width; x += 1) {
-				data[y][x] = " ";
-			}
-		}
+		lines.forEach(function(currentLine, y) { data[y] = currentLine.split(''); });
 
-		// Get a character from the array or null if we are out of bounds.
-		// Useful in places where we inspect character's neighbors and peek
-		// out of bounds for boundary characters.
-		function atP(point) {
-			return (0 <= point.y && point.y < height && 0 <= point.x && point.x < width) ?
-					data[point.y][point.x] :
-					null;
-		}
+		/**
+		 *	Every loop iteration extracts a single line and erases it from the ascii art matrix.
+		 */
+		while(typeof (currentChar = findLineChar()) !== 'undefined') {
 
-		// Returns true if the character can be part of the line.
-		function isPartOfLine(point) {
-			var c = atP(point);
-			return c === "|" || c === "-" || c === "+" || c === "~" || c === "!";
-		}
+			currentDirection = possibleDirections[data[currentChar.y][currentChar.x]];
 
-		// If character represents a color modifier returns CSS color.
-		function toColor(point) {
-			switch (atP(point)) {
-				case "~":
-				case "!":
-					return "#666";
-				default:
-					return null;
-			}
-		}
-
-		// Returns true if character is a line ending decoration.
-		function isLineEnding(point) {
-			var c = atP(point);
-			return c === "*" || c === "<" || c === ">" || c === "^" || c === "v";
-		}
-
-		// Finds a character that belongs to unextracted line.
-		function findLineChar() {
-			var x, y;
-			for (y = 0; y < height; y += 1) {
-				for (x = 0; x < width; x += 1) {
-					if (data[y][x] === '|' || data[y][x] === '-') {
-						return new Point(x, y);
-					}
+			// Find line's start by advancing in the opposite direction.
+			color = null;
+			while (isPartOfLine(new Point(currentChar.x - currentDirection.x, currentChar.y - currentDirection.y))) {
+				currentChar.x -= currentDirection.x;
+				currentChar.y -= currentDirection.y;
+				if (color === null) {
+					color = toColor(currentChar);
 				}
 			}
-			return undefined;
-		}
 
-		// Erases character that belongs to the extracted line.
-		function eraseChar(point, dx, dy) {
-			switch (atP(point)) {
-				case "|":
-				case "-":
-				case "*":
-				case ">":
-				case "<":
-				case "^":
-				case "v":
-				case "~":
-				case "!":
-					data[point.y][point.x] = " ";
-					return;
-				case "+":
-					dx = 1 - dx;
-					dy = 1 - dy;
-
-					data[point.y][point.x] = " ";
-					switch (atP(new Point(point.x - dx, point.y - dy))) {
-						case "|":
-						case "!":
-						case "+":
-							data[point.y][point.x] = "|";
-							return;
-						case "-":
-						case "~":
-						case "+":
-							data[point.y][point.x] = "-";
-							return;
-					}
-
-					switch (atP(new Point(point.x + dx, point.y + dy))) {
-						case "|":
-						case "!":
-						case "+":
-							data[point.y][point.x] = "|";
-							return;
-						case "-":
-						case "~":
-						case "+":
-							data[point.y][point.x] = "-";
-							return;
-					}
-					return;
+			// if current line has decorated start, extract it.
+			start = null;
+			if (isLineEnding(new Point(currentChar.x - currentDirection.x, currentChar.y - currentDirection.y))) {
+				currentChar.x -= currentDirection.x;
+				currentChar.y -= currentDirection.y;
+				start = (data[currentChar.y][currentChar.x] === "*") ? "circle" : "arrow";
 			}
+
+			// Find line's end by advancing forward in the given direction.
+			x1 = currentChar.x;
+			y1 = currentChar.y;
+			while (isPartOfLine(new Point(x1 + currentDirection.x, y1 + currentDirection.y))) {
+				x1 += currentDirection.x;
+				y1 += currentDirection.y;
+				if (color === null) {
+					color = toColor(new Point(x1, y1));
+				}
+			}
+
+			// if current line has decorated end, extract it.
+			end = null;
+			if (isLineEnding(new Point(x1 + currentDirection.x, y1 + currentDirection.y))) {
+				x1 += currentDirection.x;
+				y1 += currentDirection.y;
+				end = (data[y1][x1] === "*") ? "circle" : "arrow";
+			}
+
+			// Create line object, put it in the resulting list and erase line from the ascii art matrix.
+			currentLine = new Line(
+				new Point(currentChar.x, currentChar.y), start,
+				new Point(x1, y1), end,
+				color === null ? "black" : color);
+			figures.push(currentLine);
+			erase(currentLine);
+
+			// Adjust line start and end to accommodate for arrow endings.
+			// Those should not intersect with their targets but should touch them
+			// instead. Should be done after erasure to ensure that erase deletes
+			// arrowheads.
+			if (start === "arrow") {
+				currentLine.pointFrom.x -= currentDirection.x;
+				currentLine.pointFrom.y -= currentDirection.y;
+			}
+
+			if (end === "arrow") {
+				currentLine.pointTo.x += currentDirection.x;
+				currentLine.pointTo.y += currentDirection.y;
+			}
+
 		}
 
-		// Erases the given extracted line.
+		// Extract all non space characters that were left after line extraction as text objects.
+		data.forEach(function(currentLine, y){
+			var x,
+				start,
+				end,
+				text,
+				prev,
+				color;
+			for (x = 0; x < currentLine.length; x += 1) {
+				if (currentLine[x] !== ' ') {
+
+					// Find the end of the text annotation by searching for a space.
+					start = end = x;
+					while ((end < currentLine.length) && (currentLine[end] !== ' ')) {
+						end += 1;
+					}
+
+					//get the word from the array
+					text = currentLine.slice(start, end).join('');
+
+					// Check if it can be concatenated with a previously found text annotation.
+					prev = figures[figures.length - 1];
+
+					// only if previous figure item is of type Text and it's near to current text
+					if ((prev instanceof Text) && (prev.point.x + prev.text.length + 1) === start) {
+						// If they touch concatenate them.
+						prev.text = prev.text + text;
+					} else {
+
+						// Look for grey color matching modifiers.
+						color = "black";
+						if (text[0] === "\\" && text[text.length - 1] === "\\") {
+							text = text.substring(1, text.length - 1);
+							color = "#666";
+						}
+
+						//add text figure to the resulting array
+						figures.push(new Text(new Point(x, y), text, color));
+					}
+
+					// proceed from the next character after current word
+					x = end;
+				}
+			}
+		});
+
+		return figures;
+
+		/**
+		 *	Erases the given extracted line.
+		 *	@todo: maybe refactor as it's used only in extractLine loop
+		 *	@param {Line} line to erase
+		 *	@return {void}
+		 */
 		function erase(line) {
+
+			/**
+			 *	Erases character that belongs to the extracted line.
+			 *	@param {Point} point
+			 *	@param {number} dx
+			 *	@param {number} dy
+			 *	@return {void}
+			 */
+			function eraseChar(point, dx, dy) {
+				switch (atP(point)) {
+					case "|":
+					case "-":
+					case "*":
+					case ">":
+					case "<":
+					case "^":
+					case "v":
+					case "~":
+					case "!":
+						data[point.y][point.x] = " ";
+						return;
+					case "+":
+						dx = 1 - dx;
+						dy = 1 - dy;
+
+						data[point.y][point.x] = " ";
+						switch (atP(new Point(point.x - dx, point.y - dy))) {
+							case "|":
+							case "!":
+							case "+":
+								data[point.y][point.x] = "|";
+								return;
+							case "-":
+							case "~":
+							case "+":
+								data[point.y][point.x] = "-";
+								return;
+						}
+
+						switch (atP(new Point(point.x + dx, point.y + dy))) {
+							case "|":
+							case "!":
+							case "+":
+								data[point.y][point.x] = "|";
+								return;
+							case "-":
+							case "~":
+							case "+":
+								data[point.y][point.x] = "-";
+								return;
+						}
+						return;
+				}
+			}
+
 			var dx = line.pointFrom.x !== line.pointTo.x ? 1 : 0,
 				dy = line.pointFrom.y !== line.pointTo.y ? 1 : 0,
 				x = line.pointFrom.x + dx,
@@ -255,139 +338,72 @@
 			} else {
 				eraseChar(line.pointFrom, dx, dy);
 			}
+
 		}
 
-		// Extract a single line and erase it from the ascii art matrix.
-		function extractLine() {
-			var ch = findLineChar(),
-				d,
-				x1,
-				y1,
-				color,
-				start,
-				end,
-				line;
-
-			// if the char is not found, return false so that the while (extractLine()) will stop
-			if (typeof ch === 'undefined') {
-				return false;
-			}
-
-			d = dir[data[ch.y][ch.x]];
-
-			// Find line's start by advancing in the opposite direction.
-			color = null;
-			while (isPartOfLine(new Point(ch.x - d.x, ch.y - d.y))) {
-				ch.x -= d.x;
-				ch.y -= d.y;
-				if (color === null) {
-					color = toColor(ch);
-				}
-			}
-
-			start = null;
-			if (isLineEnding(new Point(ch.x - d.x, ch.y - d.y))) {
-				// Line has a decorated start. Extract is as well.
-				ch.x -= d.x;
-				ch.y -= d.y;
-				start = (data[ch.y][ch.x] === "*") ? "circle" : "arrow";
-			}
-
-			// Find line's end by advancing forward in the given direction.
-			x1 = ch.x;
-			y1 = ch.y;
-			while (isPartOfLine(new Point(x1 + d.x, y1 + d.y))) {
-				x1 += d.x;
-				y1 += d.y;
-				if (color === null) {
-					color = toColor(new Point(x1, y1));
-				}
-			}
-
-			end = null;
-			if (isLineEnding(new Point(x1 + d.x, y1 + d.y))) {
-				// Line has a decorated end. Extract it.
-				x1 += d.x;
-				y1 += d.y;
-				end = (data[y1][x1] === "*") ? "circle" : "arrow";
-			}
-
-			// Create line object and erase line from the ascii art matrix.
-			line = new Line(new Point(ch.x, ch.y), start,
-							new Point(x1, y1), end,
-							color === null ? "black" : color);
-			figures.push(line);
-			erase(line);
-
-			// Adjust line start and end to accomodate for arrow endings.
-			// Those should not intersect with their targets but should touch them
-			// instead. Should be done after erasure to ensure that erase deletes
-			// arrowheads.
-			if (start === "arrow") {
-				line.pointFrom.x -= d.x;
-				line.pointFrom.y -= d.y;
-			}
-
-			if (end === "arrow") {
-				line.pointTo.x += d.x;
-				line.pointTo.y += d.y;
-			}
-
-			return true;
-		}
-
-		// Extract all non space characters that were left after line extraction
-		// as text objects.
-		function extractText() {
-			var y,
-				x,
-				start,
-				end,
-				text,
-				prev,
-				color;
+		/**
+		 *	Finds a character that belongs to unextracted line.
+		 *	@todo: maybe refactor as it's only used in extractLine loop and uses height/width/data parent scope vars
+		 *	@return {Point} point or undefined if not found
+		 */
+		function findLineChar() {
+			var x, y;
 			for (y = 0; y < height; y += 1) {
 				for (x = 0; x < width; x += 1) {
-					if (data[y][x] !== ' ') {
-
-						// Find the end of the text annotation by searching for a space.
-						start = x;
-						end = x;
-						while ((end < width) && (data[y][end] !== ' ')) {
-							end += 1;
-						}
-
-						//get the text
-						text = data[y].slice(start, end).join('');
-
-						// Check if it can be concatenated with a previously found text annotation.
-						prev = figures[figures.length - 1];
-						if ((prev instanceof Text) && (prev.x0 + prev.text.length + 1) === start) {
-							// If they touch concatenate them.
-							prev.text = prev.text + text;
-						} else {
-							// Look for grey color matching modifiers.
-							color = "black";
-							if (text[0] === "\\" && text[text.length - 1] === "\\") {
-								text = text.substring(1, text.length - 1);
-								color = "#666";
-							}
-							figures.push(new Text(new Point(x, y), text, color));
-						}
-						x = end;
+					if (data[y][x] === '|' || data[y][x] === '-') {
+						return new Point(x, y);
 					}
 				}
 			}
+			return undefined;
 		}
 
-		while (extractLine()) {
-			// Extract all lines and erase them
+		/**
+		 *	Get a character from the array or null if we are out of bounds.
+		 *	Useful in places where we inspect character's neighbors and peek out of bounds for boundary characters.
+		 *	@param {Point} point
+		 *	@return {string} character or null if out of bounds
+		 */
+		function atP(point) {
+			return (0 <= point.y && point.y < height && 0 <= point.x && point.x < width) ?
+					data[point.y][point.x] :
+					null;
 		}
 
-		// Extract all text that is left
-		extractText();
+		/**
+		 *	Returns true if the character can be part of the line.
+		 *	@param {Point} point
+		 *	@return {boolean}
+		 */
+		function isPartOfLine(point) {
+			var c = atP(point);
+			return c === "|" || c === "-" || c === "+" || c === "~" || c === "!";
+		}
 
-		return figures;
+		/**
+		 *	Returns true if character is a line ending decoration.
+		 *	@param {Point} point
+		 *	@return {boolean}
+		 */
+		function isLineEnding(point) {
+			var c = atP(point);
+			return c === "*" || c === "<" || c === ">" || c === "^" || c === "v";
+		}
+
+		/**
+		 *	If character represents a color modifier returns CSS color and null otherwise
+		 *	@param {Point} point
+		 *	@return {string} colour representation or null
+		 */
+		function toColor(point) {
+			switch (atP(point)) {
+				case "~":
+				case "!":
+					return "#666";
+				default:
+					return null;
+			}
+		}
 
 	}
 
@@ -428,8 +444,12 @@
 		};
 	}
 
-	// calculate a shaky arrowhead coords at the (x1, y1) as an ending
-	// for the line from (x0, y0) to (x1, y1).
+	/**
+	 *	Calculates a shaky arrowhead coords at the pointTop as an ending for the line from pointFrom to pointTo
+	 *	@param {Point} pointFrom
+	 *	@param {Point} pointTo
+	 *	@return {object} from:Point to:Point two points for the arrow head
+	 */
 	function getArrowHeadCoords(pointFrom, pointTo) {
 		var dx = pointFrom.x - pointTo.x,
 			dy = pointFrom.y - pointTo.y,
@@ -453,15 +473,27 @@
 
 	}
 
-	// monkey-patch the context with our methods
+	/**
+	 *	Monkeypatches the canvas 2d context with our methods
+	 *	@param {CanvasRenderingContext2D} ctx
+	 *	@return {CanvasRenderingContext2D} patched context
+	 */
 	function enhanceCtx(ctx) {
 
 		var endPoint = new Point(0, 0);
 
-		function updateEndPoint(newPoint) {
+		/**
+		 * public setter for the the private endPoint
+		 * @public (exported as ctx.setEndPoint method)
+		 */
+		function setEndPoint(newPoint) {
 			endPoint = newPoint;
 		}
 
+		/**
+		 * Draws a bezier curve through the calculated coordinates
+		 * @public (exported as ctx.lineTo method)
+		 */
 		function lineTo(mainPoint) {
 			var lineCoords = getShakyLinePoints(endPoint, mainPoint);
 
@@ -469,11 +501,13 @@
 			ctx.moveTo(endPoint.x, endPoint.y);
 			ctx.bezierCurveTo(lineCoords.from.x, lineCoords.from.y, lineCoords.to.x, lineCoords.to.y, mainPoint.x, mainPoint.y);
 
-			// update local x0 and y0
-			updateEndPoint(mainPoint);
+			setEndPoint(mainPoint);
 		}
 
-		// Draw a shaky bulb (used for line endings).
+		/**
+		 * Draws a shaky bulb (used for line endings)
+		 * @public (exported as ctx.bulb method)
+		 */
 		function bulb(coords) {
 			var i;
 			function fuzziness() {
@@ -488,23 +522,25 @@
 			}
 		}
 
-		// Draw a shaky arrowhead at the (x1, y1) as an ending
-		// for the line from (x0, y0) to (x1, y1).
+		/**
+		 * Draws a shaky arrowhead at the pointTo as an ending for the line from pointFrom to pointTo
+		 * @public (exported as ctx.arrowhead method)
+		 */
 		function arrowhead(pointFrom, pointTo) {
 			var arrowCoords = getArrowHeadCoords(pointFrom, pointTo);
 
 			ctx.beginPath();
-			updateEndPoint(arrowCoords.from);
+			setEndPoint(arrowCoords.from);
 			lineTo(pointTo);
 			ctx.stroke();
 
 			ctx.beginPath();
-			updateEndPoint(arrowCoords.to);
+			setEndPoint(arrowCoords.to);
 			lineTo(pointTo);
 			ctx.stroke();
 		}
 
-		ctx.updateXY = updateEndPoint;
+		ctx.setEndPoint = setEndPoint;
 		ctx.lineTo = lineTo;
 		ctx.bulb = bulb;
 		ctx.arrowhead = arrowhead;
@@ -513,7 +549,11 @@
 
 	}
 
-	// calc the width and height of the drawing surface for the given array of figures
+	/**
+	 *	Calculates the width and height of the drawing surface for the given array of figures
+	 *	@param {array} figures
+	 *	@return {object} object a-la {width: int, height: int}
+	 */
 	function getCanvasWH(figures) {
 		var width = 0,
 			height = 0;
@@ -531,13 +571,35 @@
 		};
 	}
 
-	// Draw a diagram from the ascii art contained in the string variable.
+	/**
+	 *	Draws a diagram from the ascii art contained in the string variable.
+	 *	@public exported
+	 *	@param {string} text ASCII-based graphics
+	 *	@param {canvas} canvas canvas object reference
+	 */
 	function drawDiagram(text, canvas) {
-		var figures = parseASCIIArt(text),
-			ctx = canvas.getContext("2d"),
+		var figures, ctx, canvasWH, canvasClass;
+
+		if ('undefined' === typeof text || 'undefined' === typeof canvas) {
+			throw new TypeError('drawDiagram must be called with a string and canvas as parameters');
+		}
+
+		if ('[object String]' !== Object.prototype.toString.call(text)) {
+			throw new TypeError('drawDiagram needs a string as its first parameter');
+		}
+
+		// node-canvas creates canvas with [[Class]] == [object Canvas] while browsers - with [object HTMLCanvasElement]
+		canvasClass = Object.prototype.toString.call(canvas);
+		if ( ('[object Canvas]' !== canvasClass && '[object HTMLCanvasElement]' !== canvasClass) ||
+			!('getContext' in canvas)) {
+			throw new TypeError('drawDiagram needs a canvas element as its second parameter');
+		}
+
+		figures = parseASCIIArt(text);
+		ctx = canvas.getContext("2d");
 
 		// determine the width and height of the canvas element
-			canvasWH = getCanvasWH(figures);
+		canvasWH = getCanvasWH(figures);
 
 		canvas.width = canvasWH.width + 10;
 		canvas.height = canvasWH.height + 10;
@@ -545,7 +607,7 @@
 		// set context style
 		ctx.lineWidth = 3;
 
-		// for nodejs use this font should be installed as a system font
+		// for nodejs this font should be installed as a system font
 		// until https://github.com/LearnBoost/node-canvas/pull/231 is resolved
 		ctx.font = "20pt 'Gloria Hallelujah'";
 		ctx.textBaseline = "middle";
@@ -554,9 +616,7 @@
 		ctx = enhanceCtx(ctx);
 
 		// and draw all figures on it
-		figures.forEach(function (figure) {
-			figure.draw(ctx);
-		});
+		figures.forEach(function (figure) { figure.draw(ctx); });
 	}
 
 	// export mechanism is inspired by underscore.js

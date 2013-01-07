@@ -17,8 +17,6 @@ fs.readFile(inputFileName, 'utf8', function(err, data) {
 	if (err) {
 		throw err;
 	}
-	console.log(data);
-
 
 	// process read info as ASCII-representation of the image, parse and draw the image and
 	// save data to the png file
@@ -34,6 +32,8 @@ function processData(inputData) {
 	var Canvas = require('canvas'),
 		canvas = new Canvas(200,200),
 		shaky = require('./shaky.js');
+
+	console.log(Object.prototype.toString.call(canvas));
 
 	// draw the diagram on the specified canvas
 	shaky.drawDiagram(inputData, canvas);

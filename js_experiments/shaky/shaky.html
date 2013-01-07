@@ -6,7 +6,9 @@
 			function draw() {
 				if (typeof drawDiagram !== 'function') return;
 
-				drawDiagram(document.querySelector("#textarea").value, document.querySelector("#canvas"));
+        var cns =document.querySelector("#canvas");
+
+				drawDiagram(document.querySelector("#textarea").value, cns);
 
 			}
 
@@ -61,10 +63,10 @@
             +----------+-------+
             |
             v
-            +--------------------+
-            |  SharedFunctionInfo|
-            |          *         |
-            +----------+---------+
+            +----------------------+
+            |  SharedFunctionInfo  |
+            |          *           |
+            +----------+-----------+
             |
             v
             +--------------------+
