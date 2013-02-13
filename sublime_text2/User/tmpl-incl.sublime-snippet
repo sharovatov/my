@@ -1,6 +1,0 @@
-<snippet>
-	<content><![CDATA[
-<!-- INCLUDE ${1:file} -->
-]]></content>
-	<tabTrigger>tmpl-incl</tabTrigger>
-</snippet>

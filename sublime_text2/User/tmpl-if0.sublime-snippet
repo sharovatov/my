@@ -1,6 +1,0 @@
-<snippet>
-	<content><![CDATA[
-<!-- IF 0 ---> ${1:unreachable text} <!-- /IF 0 --->
-]]></content>
-	<tabTrigger>tmpl-if0</tabTrigger>
-</snippet>
