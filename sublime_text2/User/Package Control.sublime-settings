@@ -1,0 +1,19 @@
+{
+	"auto_upgrade_last_run": null,
+	"installed_packages":
+	[
+		"Bison",
+		"CoffeeScript",
+		"Dart",
+		"DocBlockr",
+		"eco",
+		"jQuery",
+		"JS Validation using Esprima",
+		"LiveReload",
+		"Package Control",
+		"Sass",
+		"SideBarEnhancements",
+		"SublimeLinter",
+		"SublimeOnSaveBuild"
+	]
+}

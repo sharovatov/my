@@ -1,0 +1,10 @@
+<snippet>
+	<content><![CDATA[
+<!-- IF ${1:condition} ---> 
+	${2:then} 
+<!-- ELSE --->
+	${3:then}
+<!-- /IF ${1} --->
+]]></content>
+	<tabTrigger>tmpl-ifelse</tabTrigger>
+</snippet>

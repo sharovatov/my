@@ -1,0 +1,119 @@
+/*
+    my SublimeLinter settings
+*/
+{
+    /*
+        Sets the mode in which SublimeLinter runs:
+
+        true - Linting occurs in the background as you type (the default).
+        false - Linting only occurs when you initiate it.
+        "load-save" - Linting occurs only when a file is loaded and saved.
+        "save-only" - Linting occurs only when a file is saved.
+    */
+    "sublimelinter": "save-only",
+
+    // An array of linter names to disable. Names should be lowercase.
+    "sublimelinter_disable":
+    [
+        "python", "c", "ruby", "perl", "java"
+    ],
+
+    /*
+        The minimum delay in seconds (fractional seconds are okay) before
+        a linter is run when the "sublimelinter" setting is true. This allows
+        you to have background linting active, but defer the actual linting
+        until you are idle. When this value is greater than the built in linting delay,
+        errors are erased when the file is modified, since the assumption is
+        you don't want to see errors while you type.
+    */
+    "sublimelinter_delay": 2,
+
+    /*
+        Selects the way the lines with errors or warnings are marked; "outline"
+        (default) draws outline boxes around the lines, "fill" fills the lines
+        with the outline color, and "none" disables all outline styles
+        (useful if "sublimelinter_gutter_marks" is set).
+    */
+    "sublimelinter_mark_style": "outline",
+
+    /*
+        If true, lines with errors or warnings will be filled in with the
+        outline color.
+
+        This setting is DEPRECATED and will be ignored in future
+        versions. Use "sublimelinter_mark_style" instead. For backwards
+        compatibility reasons, this setting overrides "sublimelinter_mark_style"
+        if that one is set to "outline", but has no effect if it's set to "none".
+    */
+    "sublimelinter_fill_outlines": false,
+
+    // If true, lines with errors or warnings will have a gutter mark.
+    "sublimelinter_gutter_marks": true,
+
+    // If true, the find next/previous error commands will wrap.
+    "sublimelinter_wrap_find": true,
+
+    // If true, when the file is saved any errors will appear in a popup list
+    "sublimelinter_popup_errors_on_save": false,
+
+    // Javascript linter: "gjslint" to use the closure javascript linter (if available),
+    // or either "jshint" or "jslint" to use a built in linter.
+    "javascript_linter": "jshint",
+
+    // jshint: options for linting JavaScript. See http://www.jshint.com/options/ for more info.
+    // By deault, eval is allowed.
+    "jshint_options":
+    {
+        // To fix column positions for JSHint errors you may want to add `"indent": 1` to your
+        // **User** "jshint_options". This issue affects users with tabs for indentation.
+        // This fix was reverted due to a conflict with using the `"white": true` option.
+        // "indent": 1,
+        "evil": true,
+        "regexdash": true,
+        "browser": true,
+        "wsh": true,
+        "trailing": true,
+        "sub": true
+    },
+
+    // CSSLint options:
+    // Each rule can have three values: error|warning|true|false
+    // false => rule is disabled.
+    // true => alias to 'error'
+    // All rules are enabled by default.
+    // Currently the only difference between warnings and errors is in the prefix of the message in the Sublime status bar.
+    "csslint_options":
+    {
+        "adjoining-classes": "warning",
+        "box-model": true,
+        "box-sizing": "warning",
+        "compatible-vendor-prefixes": "warning",
+        "display-property-grouping": true,
+        "duplicate-background-images": "warning",
+        "duplicate-properties": true,
+        "empty-rules": true,
+        "errors": true,
+        "fallback-colors": "warning",
+        "floats": "warning",
+        "font-faces": "warning",
+        "font-sizes": "warning",
+        "gradients": "warning",
+        "ids": "warning",
+        "import": "warning",
+        "important": "warning",
+        "known-properties": true,
+        "outline-none": "warning",
+        "overqualified-elements": "warning",
+        "qualified-headings": "warning",
+        "regex-selectors": "warning",
+        "rules-count": "warning",
+        "shorthand": "warning",
+        "star-property-hack": "warning",
+        "text-indent": "warning",
+        "underscore-property-hack": "warning",
+        "unique-headings": "warning",
+        "universal-selector": "warning",
+        "vendor-prefix": true,
+        "zero-units": "warning"
+    }
+}

@@ -1,0 +1,12 @@
+<snippet>
+	<content><![CDATA[
+<!-- IF ${1:if condition} ---> 
+	${3:if-then} 
+<!-- ELSEIF ${2:elseif condition} --->
+	${4:elseif-then}
+<!-- ELSE --->
+	${5:else-then}
+<!-- /IF ${1} --->
+]]></content>
+	<tabTrigger>tmpl-ifelseif</tabTrigger>
+</snippet>

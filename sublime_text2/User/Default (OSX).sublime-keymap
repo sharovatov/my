@@ -1,0 +1,5 @@
+[
+	{	"keys": ["super+alt+o"], 
+		"command": "reopen", "args": {"encoding": "Cyrillic (Windows 1251)" }
+		}
+]

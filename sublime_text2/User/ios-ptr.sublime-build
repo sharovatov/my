@@ -1,0 +1,3 @@
+{
+	"cmd": ["rsync", "-aE", "--delete", "/Users/sharovatov/Documents/github/my/js_experiments/ios_pull-to-refresh/", "/Users/sharovatov/.mountedSSH/sharovatov.ru/ptr/"]
+}
