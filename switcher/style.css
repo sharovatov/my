@@ -1,64 +1,60 @@
-.ios-switch {
-    position: absolute;
-    opacity: 0;
-}
-
-.ios-switch + div {
-    margin: 0; padding: 0;
-    display: inline-block;
-    vertical-align: middle;
-    height: 24px;
-    width: 56px;
-    border-radius: 999px;
-    background: #CDCDCD;
-    overflow: hidden;
-    -webkit-backface-visibility: hidden;
-    -webkit-perspective: 1000;
-    -webkit-transform: translate3d(0, 0, 0);
-
-    transition-duration: .3s;
-    transition-property: padding, width, background-color;
-}
-
-.ios-switch:checked + div {
-    width: 24px;
-    padding-left: 32px;
-    background-color: #1E5098;
-}
-
-.ios-switch + div:before {
-    content: '';
-    float: left;
-    width: 18px; height: 18px;
-    margin: 3px;
-    /*margin-top: 3px;  24 = 18 + 3 + 3*/
-    /*margin-left: 3px;*/
-    /*margin-right: 3px;*/
-    border-radius: inherit;
-    background: white;
-}
-
-/*.ios-switch:active + div:before {
-    background-color: #eee;
-}
-*/
-.ios-switch + div:before {
-    font: bold 60%/1.9 sans-serif;
-}
-
-
-/* Switch code ends here, from now on it’s just bling for the demo page */
-
-label {
+.niceSwitcher {
     position: relative;
-    display: inline-block;
-    padding: .8em;
-    font: bold 100% sans-serif;
-    border: 1px solid #eee;
+    display: block; 
+    width: 56px;
+    float:left;
+    /*width: 256px;*/
+    height: 24px;
+    overflow: hidden;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
 
+    /* checkbox */
+    .niceSwitcher__input {
+        position: absolute;
+        opacity: 0;
+    }
 
-body {
-    padding: 1em;
-    font: 100% sans-serif;
-}
+    /* handler div */
+    .niceSwitcher__handle {
+        margin: 0; padding: 0;
+        display: inline-block;
+        vertical-align: middle;
+        height: 24px;
+        width: 56px;
+        /*width: 256px;*/
+        border-radius: 15px;
+        background: #CDCDCD;
+        overflow: hidden;
+
+        -webkit-backface-visibility: hidden;
+        -webkit-transform: translate3d(0, 0, 0) translateZ(0);
+        -webkit-perspective: 1000;
+
+        transition-duration: .3s;
+        /*transition-timing-function: linear;*/
+        transition-property: padding, width, background-color;
+    }
+        /* circle handler */
+        .niceSwitcher__handle__item {
+            content: '';
+            display: inline-block;
+            /*float: left;*/
+            width: 18px; height: 18px;
+            margin: 3px;
+            /*margin-top: 3px;  24 = 18 + 3 + 3*/
+            /*margin-left: 3px;*/
+            /*margin-right: 3px;*/
+            border-radius: inherit;
+            background: white;
+        }
+
+
+    /* handler has different style when is after checked checkbox */
+    .niceSwitcher__input:checked + .niceSwitcher__handle {
+        width: 24px;
+        /*width: 124px;*/
+        padding-left: 32px;
+        /*padding-left:132px;*/
+        background-color: #1E5098;
+    }

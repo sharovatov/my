@@ -1,6 +1,5 @@
-function switchState() {
+function switchState(e) {
     var elem = this.querySelector('.niceSwitcher__input');
-    console.log(elem.checked);
     elem.checked = !elem.checked;
 }
 window.onload = function() {
