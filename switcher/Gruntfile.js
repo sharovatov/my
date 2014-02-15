@@ -1,4 +1,4 @@
-module.exports = function(grunt) {
+module.exports = function (grunt) {
   'use strict';
 
   grunt.initConfig({
@@ -8,6 +8,9 @@ module.exports = function(grunt) {
       client: {
         src: [
           '*.js'
+        ],
+        exclude: [
+          'Gruntfile.js'
         ],
         directives: {
           browser: true,
@@ -20,7 +23,7 @@ module.exports = function(grunt) {
 
     watch: {
       src: {
-        files: ['*.js', '*.сss'],
+        files: ['*.js', '*.сss', '*.html'],
         options: {
           livereload: true,
         },
@@ -28,8 +31,6 @@ module.exports = function(grunt) {
     }
   });
 
-  // Default task(s).
- 
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-jslint');
   grunt.registerTask('default', 'jslint');
