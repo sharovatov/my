@@ -1,11 +1,65 @@
+html,body {
+    margin: 0;
+    padding: 0;
+}
+body {
+    font: 17px/24px "Open Sans",sans-serif;
+    background: #CDCDCD;
+    color: #666;
+}
+
+.menu {
+    background: #1E5098;
+    color: #f1f1f1;
+    text-align: center;
+    height: 36px;
+    padding-top: 8px;
+    font-size: 17px;
+    /*border-bottom: 4px solid #cdcdcd;*/
+}
+
+
+.section {
+    clear: both;
+    background:#F7F7F7;
+    border: 1px solid #ccc;
+    margin: 14px 4px 30px 4px;
+    position: relative;
+}
+.section:after {
+    content: " ";
+    height: 3px;
+    display: block;
+    left: 3px;
+    right: 3px;
+    position: absolute;
+    bottom: -3px;
+    background: #bbb;
+    /*background: red;*/
+}
+
+.section__item {
+    overflow: auto;
+    padding: 8px 8px 10px 8px;
+    border-top: 1px solid #ccc;
+    /*height: 40px;*/
+    /*background: red;*/
+}
+
+.section__item:first-of-type {
+    border-top:0;
+}
+
 .niceSwitcher {
     position: relative;
     display: block; 
     width: 56px;
-    float:left;
+    float:right;
     /*width: 256px;*/
-    height: 24px;
+    height: 26px;
     overflow: hidden;
+    -webkit-user-select:none;
+    user-select: none;
     -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
 
