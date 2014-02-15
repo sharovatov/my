@@ -1,0 +1,671 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"of",
+				"offsetHeight"
+			],
+			[
+				"off",
+				"offset"
+			],
+			[
+				"PTR",
+				"PTRControl"
+			],
+			[
+				"ptr",
+				"PTRControl"
+			],
+			[
+				"arro",
+				"arrow"
+			],
+			[
+				"Webkit",
+				"WebkitAnimationName"
+			],
+			[
+				"Web",
+				"WebkitAnimation"
+			],
+			[
+				"Webki",
+				"WebkitTransition"
+			],
+			[
+				"webkit",
+				"webkit-transition"
+			],
+			[
+				"res",
+				"result"
+			],
+			[
+				"set",
+				"setHandlerPosition"
+			],
+			[
+				"init",
+				"initialPos"
+			],
+			[
+				"button",
+				"buttonHolder"
+			],
+			[
+				"scroll",
+				"scrollOffset"
+			],
+			[
+				"postio",
+				"position"
+			],
+			[
+				"strip",
+				"stripslashes"
+			],
+			[
+				"va",
+				"var_dump"
+			],
+			[
+				"La",
+				"LastMessageID"
+			],
+			[
+				"pull",
+				"pullOpacity"
+			],
+			[
+				"loa",
+				"loaingOpacity"
+			],
+			[
+				"rele",
+				"releaseOpacity"
+			],
+			[
+				"iOS-",
+				"ios-scrollable"
+			],
+			[
+				"last",
+				"LastMessageID"
+			],
+			[
+				"inlin",
+				"inline-image"
+			],
+			[
+				"inli",
+				"inline-image"
+			],
+			[
+				"bac",
+				"background"
+			],
+			[
+				"nor",
+				"no-repeat"
+			],
+			[
+				"ba",
+				"background-image"
+			],
+			[
+				"pos",
+				"position"
+			],
+			[
+				"l-mes",
+				"l-messagesList__item"
+			],
+			[
+				"back",
+				"background"
+			],
+			[
+				"l-pr",
+				"l-profile-entry"
+			],
+			[
+				"l-profile",
+				"l-profile-entry__item"
+			],
+			[
+				"ope",
+				"open"
+			],
+			[
+				"backgr",
+				"background-repeat"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "Packages/User/ios-ptr.sublime-build",
+	"command_palette":
+	{
+		"height": 61.0,
+		"selected_items":
+		[
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"remove ",
+				"Package Control: Remove Package"
+			],
+			[
+				"packa",
+				"Package Control: List Packages"
+			],
+			[
+				"package con",
+				"Package Control: List Packages"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"reove",
+				"Package Control: Remove Package"
+			],
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"remove pa",
+				"Package Control: Remove Package"
+			],
+			[
+				"remo",
+				"Package Control: Remove Package"
+			],
+			[
+				"run",
+				"Run JavaScript in the browser"
+			],
+			[
+				"ru",
+				"Run JavaScript in the browser"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"pack",
+				"Preferences: Browse Packages"
+			]
+		],
+		"width": 467.0
+	},
+	"console":
+	{
+		"height": 237.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Users/sharovatov/Documents/github/my/js_experiments/ios_pull-to-refresh/ptr2.html",
+		"/Users/sharovatov/Documents/github/my/js_experiments/ios_pull-to-refresh/ptr2.js",
+		"/Users/sharovatov/Documents/github/my/js_experiments/ios_pull-to-refresh/ptr2.css",
+		"/Users/sharovatov/Documents/github/my/js_experiments/ios_pull-to-refresh/ptr.html",
+		"/Users/sharovatov/Library/Application Support/Sublime Text 2/Packages/User/ios-ptr.sublime-build",
+		"/Users/sharovatov/Documents/experiments/lenta/sass/_ios-ptr.scss",
+		"/Users/sharovatov/Documents/experiments/lenta/sass/style.scss",
+		"/Users/sharovatov/Documents/experiments/lenta/sass/_dialogues.scss",
+		"/Users/sharovatov/alei/alei73/mail.ru.sharovatov/data/mymobile/.templates/blocks/head-redesign.html",
+		"/Users/sharovatov/.mountedSSH/sharovatov.ru/_about.html",
+		"/Users/sharovatov/.mountedSSH/sharovatov.ru/_portfolio.html",
+		"/Users/sharovatov/.mountedSSH/sharovatov.ru/current.html",
+		"/Users/sharovatov/.mountedSSH/sharovatov.ru/dev.html",
+		"/Users/sharovatov/.mountedSSH/sharovatov.ru/fed.html",
+		"/Users/sharovatov/.mountedSSH/sharovatov.ru/fed1.html",
+		"/Users/sharovatov/.mountedSSH/sharovatov.ru/index.html",
+		"/Users/sharovatov/.mountedSSH/sharovatov.ru/test.html",
+		"/Users/sharovatov/.mountedSSH/sharovatov.ru/text.html",
+		"/Users/sharovatov/Documents/github/sharovatov.github.com/src/documents/posts/2013-01-09-iOS-pull-to-refresh.html.md",
+		"/Users/sharovatov/Documents/github/sharovatov.github.com/src/documents/posts/2006-08-http-caching.html.md",
+		"/Users/sharovatov/Documents/github/sharovatov.github.com/src/documents/posts/2012-10-operaminiemul.html.md",
+		"/Users/sharovatov/Documents/github/sharovatov.github.com/src/documents/posts/2012-10-opera-unite-dead.html.md",
+		"/Users/sharovatov/Documents/github/sharovatov.github.com/src/documents/posts/2006-07-jsevents.html.md",
+		"/Users/sharovatov/Documents/github/sharovatov.github.com/posts/2013-01-09-iOS-pull-to-refresh.html",
+		"/Users/sharovatov/Documents/github/my/js_experiments/ios_pull-to-refresh/iphone2.html",
+		"/Users/sharovatov/.mountedSSH/sharovatov.ru/dialogues-thread.html",
+		"/Users/sharovatov/.mountedSSH/sharovatov.ru/iphone2.css",
+		"/Users/sharovatov/.mountedSSH/sharovatov.ru/iphone2.html",
+		"/Users/sharovatov/.mountedSSH/sharovatov.ru/iphone2.js",
+		"/Users/sharovatov/.mountedSSH/sharovatov.ru/thread.html",
+		"/Users/sharovatov/Library/Application Support/Sublime Text 2/Packages/User/Preferences.sublime-settings",
+		"/Users/sharovatov/.mountedSSH/vf/www/visaforum.org/cms/edit_customs.php",
+		"/Users/sharovatov/.mountedSSH/vf/www/visaforum.org/cms/edit_pages.php",
+		"/Users/sharovatov/.mountedSSH/vf/www/visaforum.org/cms/edit_visafaq.php",
+		"/Users/sharovatov/.mountedSSH/vf/www/visaforum.org/cms/edit.php",
+		"/Users/sharovatov/.mountedSSH/vf/www/visaforum.org/my-templates/visaforum/companies.html",
+		"/Users/sharovatov/.mountedSSH/vf/www/visaforum.org/my-templates/visaforum/consulates.html",
+		"/Users/sharovatov/.mountedSSH/sharovatov.ru/iphone.html",
+		"/Users/sharovatov/Documents/github/my/js_experiments/shaky/shaky.js",
+		"/Users/sharovatov/Documents/github/sharovatov.github.com/src/documents/posts/2013-01-07-shakylines-js.html.md",
+		"/Users/sharovatov/Documents/github/sharovatov.github.com/src/documents/posts/2006-08-hor.html.md",
+		"/Users/sharovatov/.mountedSSH/vf/www/visaforum.org/my-templates/visaforum/customs.html",
+		"/Users/sharovatov/.mountedSSH/vf/www/visaforum.org/my-templates/visaforum/donate.html",
+		"/Users/sharovatov/.mountedSSH/vf/www/visaforum.org/my-templates/visaforum/help.html",
+		"/Users/sharovatov/Documents/experiments/vf-fresh/2012-12-04/my-templates/visaforum/help.html",
+		"/Users/sharovatov/.mountedSSH/vf/www/visaforum.org/my-templates/visaforum/countries.html",
+		"/Users/sharovatov/.mountedSSH/vf/www/visaforum.org/my-templates/visaforum/rules_copy.html",
+		"/Users/sharovatov/.mountedSSH/vf/www/visaforum.org/my-templates/visaforum/rules.html",
+		"/Users/sharovatov/Documents/experiments/vf-fresh/2012-12-04/my-templates/visaforum/rules.html",
+		"/Users/sharovatov/.mountedSSH/vf/www/visaforum.org/my-templates/visaforum/specialist_reg_faq.html",
+		"/Users/sharovatov/.mountedSSH/vf/www/visaforum.org/my-templates/visaforum/specialist_reg_text.html",
+		"/Users/sharovatov/.mountedSSH/vf/www/visaforum.org/my-templates/visaforum/ufms.html",
+		"/Users/sharovatov/.mountedSSH/vf/www/visaforum.org/my-templates/visaforum/visachance.html",
+		"/Users/sharovatov/.mountedSSH/vf/www/visaforum.org/my-templates/visaforum/visafaq.html",
+		"/Users/sharovatov/.mountedSSH/vf/www/visaforum.org/my-templates/visaforum/visafree.html",
+		"/Users/sharovatov/.mountedSSH/vf/www/visaforum.org/my-templates/visaforum/infoBox/22.html",
+		"/Users/sharovatov/Documents/experiments/vf-fresh/2012-12-04/my-templates/visaforum/infoBox/22.html",
+		"/Users/sharovatov/.mountedSSH/vf/www/visaforum.org/cms/update-twitter.php",
+		"/Users/sharovatov/Downloads/shaky.dart",
+		"/Users/sharovatov/Downloads/shaky.dart.txt",
+		"/Users/sharovatov/Documents/github/my/js_experiments/shaky/textfile",
+		"/Users/sharovatov/Documents/github/my/js_experiments/shaky/a.html",
+		"/Users/sharovatov/Documents/github/underscore/underscore.js",
+		"/Users/sharovatov/Documents/github/my/site/docpad.json",
+		"/Users/sharovatov/Documents/github/my/site/src/docpad.coffee",
+		"/Users/sharovatov/Documents/github/my/site/src/documents/index.html.eco",
+		"/Users/sharovatov/Documents/github/my/site/src/documents/posts/2009-06-getboundingrect.html.md",
+		"/Users/sharovatov/Documents/github/my/site/src/documents/posts/2009-04-ie8impupd.html.md",
+		"/Users/sharovatov/Documents/github/my/site/src/documents/posts/2009-04-ie8accels.html.md",
+		"/Users/sharovatov/Documents/github/my/site/src/documents/posts/2009-04-ieaccl-findbroken.html.md",
+		"/Users/sharovatov/Documents/github/my/site/src/documents/posts/2009-04-raphael.html.md",
+		"/Users/sharovatov/Documents/github/my/site/src/documents/posts/2009-04-sync-wlw.html.md",
+		"/Users/sharovatov/Documents/github/my/site/src/documents/posts/2009-04-wl.html.md",
+		"/Users/sharovatov/Documents/github/my/site/src/documents/posts/2009-04-wlwaddsremoval.html.md",
+		"/Users/sharovatov/Documents/github/my/site/src/documents/posts/2009-05-applelivestreaming.html.md",
+		"/Users/sharovatov/Documents/github/my/site/src/documents/posts/2009-05-beanstalkapp.html.md",
+		"/Users/sharovatov/Documents/github/my/site/src/documents/posts/2009-05-gtc.html.md",
+		"/Users/sharovatov/Documents/github/my/site/src/documents/posts/2009-05-hostingissues.html.md",
+		"/Users/sharovatov/Documents/github/my/site/src/documents/posts/2009-05-htmlcssjsplatform.html.md",
+		"/Users/sharovatov/Documents/github/my/site/src/documents/posts/2009-05-ie8news.html.md",
+		"/Users/sharovatov/Documents/github/my/site/src/documents/posts/2009-05-ie8renderingmodes.html.md",
+		"/Users/sharovatov/Documents/github/my/site/src/documents/posts/2009-05-itil.html.md",
+		"/Users/sharovatov/Documents/github/my/site/src/documents/posts/2009-05-win7acclplatfm.html.md",
+		"/Users/sharovatov/Documents/github/my/site/src/documents/posts/2009-05-win7taskbar.html.md",
+		"/Users/sharovatov/Documents/github/my/site/src/documents/posts/2009-06-fx-poor-ieak.html.md",
+		"/Users/sharovatov/Documents/github/my/site/src/documents/posts/2009-06-ie6-universal.html.md",
+		"/Users/sharovatov/Documents/github/my/site/src/documents/posts/2009-06-intelmb.html.md",
+		"/Users/sharovatov/Documents/github/my/site/src/documents/posts/2009-06-opera-reinvent.html.md",
+		"/Users/sharovatov/Documents/github/my/site/src/documents/posts/2009-06-opera-rev-fail.html.md",
+		"/Users/sharovatov/Documents/github/my/site/src/documents/posts/2009-06-operabsod.html.md",
+		"/Users/sharovatov/Documents/github/my/site/src/documents/posts/2009-06-skype-blocking.html.md",
+		"/Users/sharovatov/Documents/github/my/site/src/documents/posts/2009-06-win7woie8.html.md",
+		"/Users/sharovatov/Documents/github/my/site/src/documents/posts/2009-11-beanstalk.html.md",
+		"/Users/sharovatov/Documents/github/my/site/src/documents/posts/2009-11-devtools.html.md",
+		"/Users/sharovatov/Documents/github/my/site/src/documents/posts/2009-11-http-pipeline.html.md",
+		"/Users/sharovatov/Documents/github/my/site/src/documents/posts/2009-12-httpbis.html.md",
+		"/Users/sharovatov/Documents/github/my/site/src/documents/posts/2009-12-iisvuln.html.md",
+		"/Users/sharovatov/Documents/github/my/site/src/documents/posts/2010-03-ie9-sucksmuchless.html.md",
+		"/Users/sharovatov/Documents/github/my/site/src/documents/posts/2010-03-wp7.html.md",
+		"/Users/sharovatov/Documents/github/my/site/src/documents/posts/2010-03-wp7emul.html.md",
+		"/Users/sharovatov/Documents/github/my/site/src/documents/posts/2012-01-iframe-autosize.html.md",
+		"/Users/sharovatov/Documents/github/my/site/src/documents/posts/2012-01-x-frame-options.html.md",
+		"/Users/sharovatov/Documents/github/my/site/src/documents/posts/2012-10-opera-unite-dead.html.md",
+		"/Users/sharovatov/Documents/github/my/site/src/documents/posts/2012-10-operaminiemul.html.md",
+		"/Users/sharovatov/Documents/github/my/site/src/documents/posts/2009-04-ie7weirdcolbug.html.md",
+		"/Users/sharovatov/Documents/github/my/site/src/documents/posts/2009-04-sl-smooth-and-http.html.md",
+		"/Users/sharovatov/Documents/github/my/site/src/documents/posts/2009-04-visited.html.md",
+		"/Users/sharovatov/Documents/github/my/site/src/documents/posts/2009-05-wdg.html.md",
+		"/Users/sharovatov/Documents/github/my/site/src/documents/posts/2009-06-html5video.html.md",
+		"/Users/sharovatov/Documents/github/my/site/src/documents/posts/2009-06-ie-version-targeting.html.md",
+		"/Users/sharovatov/Documents/github/my/site/src/documents/posts/2009-11-php-xml.html.md",
+		"/Users/sharovatov/Documents/github/my/site/src/documents/posts/2010-03-link-toqrcode.html.md",
+		"/Users/sharovatov/Documents/github/my/site/src/documents/posts/2011-01-jsexplained.html.md",
+		"/Users/sharovatov/Documents/github/my/site/src/documents/posts/2009-04-httpchunked.html.md",
+		"/Users/sharovatov/Documents/github/my/site/src/documents/posts/2009-04-fxdesignmode.html.md",
+		"/Users/sharovatov/Documents/github/my/site/src/documents/posts/2009-04-embeddedfonts.html.md",
+		"/Users/sharovatov/Documents/github/my/site/src/documents/posts/2009-04-exchange2010.html.md",
+		"/Users/sharovatov/Documents/github/my/site/src/documents/posts/2009-04-commoninternetscheme.html.md",
+		"/Users/sharovatov/Documents/github/my/site/src/documents/posts/2009-04-canonical.html.md",
+		"/Users/sharovatov/Documents/github/my/site/src/documents/posts/2006-09-jsonxhtml.html.md",
+		"/Users/sharovatov/Documents/github/my/site/src/documents/posts/2008-05-dataURI-browserissues.html.md",
+		"/Users/sharovatov/Documents/github/my/site/src/documents/posts/2008-12-migratinglivesite.html.md",
+		"/Users/sharovatov/Documents/github/my/site/src/documents/posts/2006-08-hor.html.md",
+		"/Users/sharovatov/Documents/github/my/site/src/documents/posts/2006-08-http-caching.html.md",
+		"/Users/sharovatov/Documents/github/my/site/src/documents/posts/2006-08-jsonoff.html.md",
+		"/Users/sharovatov/Documents/github/my/site/src/documents/posts/2008-03-IE8beta1-tests.html.md",
+		"/Users/sharovatov/Documents/github/my/site/src/documents/posts/2008-06-http-historylist.html.md",
+		"/Users/sharovatov/Documents/github/my/site/src/documents/posts/2006-07-jsevents.html.md"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+			"/Users/sharovatov/Documents/github/my/site/src"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"content",
+			"conso",
+			"consol",
+			"console",
+			"move",
+			"*/",
+			"/*",
+			"CName",
+			"<html",
+			"dialog",
+			"rotateElement",
+			"restoreHandlerPosition",
+			"triggerState",
+			"inner",
+			".inner",
+			"\"inner",
+			"inner",
+			"fix",
+			"container",
+			"middle",
+			"fix",
+			"container",
+			"rotatear",
+			"rotateElement",
+			"arrow",
+			"startElementRotation",
+			"rotate",
+			"transition",
+			"startElementRotation",
+			"arrow",
+			"startElementRotation",
+			"arrow",
+			"animation",
+			"startElementRotation",
+			"initialPos",
+			"startElementRotation",
+			"stopElementRotation",
+			"arrowDelay",
+			"arrowdel",
+			"refreshin",
+			"ios-ref",
+			"setHandlerPosition",
+			"animateHandlerShow",
+			"makeAnimate",
+			"// if",
+			"elm",
+			"\\\"",
+			"sqrt",
+			"console.",
+			"alert",
+			"log",
+			"target_nofollow_external_only",
+			"&#8211;",
+			".",
+			"<pre>",
+			"`</pre>",
+			"&gt;",
+			"&lt;",
+			"</code>",
+			"<code>",
+			"</em>",
+			"<em>",
+			"</b>",
+			"<b>",
+			"<strong>",
+			"</strong>",
+			"<strong>",
+			"</em>",
+			"<em>",
+			"</strong>",
+			"<strong>",
+			"</code>",
+			"<code>",
+			"&rdquo;",
+			"&ldquo;",
+			"&laquo;",
+			"</strong>",
+			"<strong>",
+			"<blockquote>",
+			"</strong>",
+			"<strong>",
+			"#",
+			"</em>",
+			"<em>",
+			"&gt;",
+			"&lt;",
+			"</code>",
+			"<code>",
+			"</code>",
+			"<code>",
+			"</blockquote>",
+			"<blockquote>",
+			"</code>",
+			"<code>",
+			"&gt;",
+			"&lt;",
+			"</pre>",
+			"<pre>",
+			"<code>",
+			"</code>",
+			"</code></pre>",
+			"<pre><code>",
+			"&gt;",
+			"&lt;",
+			"</code></pre>",
+			"<pre><code>",
+			"<li",
+			"pre",
+			"&gt;",
+			"&lt;",
+			"addeve",
+			"</code>",
+			"<code>",
+			"когда",
+			"pseudoprotocol",
+			"Magic_Number_B",
+			"##Magic_Number_A##",
+			"##Magic_Number_B##",
+			"mnb",
+			"b-dialogues__thread-header",
+			">   <",
+			"    ",
+			"        ",
+			"         ",
+			"\\\"",
+			"<h2>",
+			"оступ ограничен",
+			"_CommentUrl"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"",
+			"//",
+			"startRotating",
+			"switchVisibility",
+			".ios-inner",
+			"\"ios-inner",
+			"ios-middle",
+			"ios-outer",
+			"parent",
+			"ios-middle",
+			"ios-outer",
+			"animateElementShow",
+			"animateHandlerShow",
+			"\"",
+			"-",
+			"",
+			">",
+			"<",
+			"`",
+			"_",
+			"**",
+			"_",
+			"**",
+			"`",
+			"\"",
+			"**",
+			">\\t",
+			"**",
+			"_",
+			">",
+			"<",
+			"`",
+			"",
+			"> ",
+			"`",
+			">",
+			"<",
+			"",
+			">",
+			"<",
+			"",
+			">",
+			"<",
+			"`",
+			"><",
+			"",
+			"\"",
+			"initPullToRefresh",
+			"find",
+			"document.querySelector",
+			"<di",
+			"",
+			".ios-arrow",
+			".ios-spinner",
+			".ios-arrow",
+			"ios-wrap",
+			"ios-scrollable",
+			"List__item m-primary\">",
+			"m-secondary",
+			"l-messagesList__date m-note",
+			"</div>",
+			"<div class=\"l-mes",
+			"CurrentFirstID",
+			"FirstPhotoID",
+			"##CurrentCount##",
+			"##CurrentTopEventType##",
+			"CurrentTopEventType",
+			"CurrentTopEventID",
+			"##CurrentTopEventOwnerID##",
+			"CurrentTopEventOwnerID",
+			"##CurrentTopEventOwnerID##",
+			"CurrentIsLikeable",
+			"##CurrentIsLikeable##",
+			"CurrentLikesCount",
+			"/span> &lt;",
+			"<p class=\"l-profile-item\"><span class=\"m-secondary\">",
+			"-->",
+			"</p",
+			"<p",
+			"p",
+			"class=\"l-header m-header\"",
+			"##Mobile_FemaleWordEnding##"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 48.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 98.0
+	},
+	"replace":
+	{
+		"height": 88.0
+	},
+	"save_all_on_build": false,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": false,
+	"side_bar_width": 324.0,
+	"status_bar_visible": true
+}
