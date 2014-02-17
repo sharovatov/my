@@ -51,7 +51,6 @@ body {
     display: block; 
     width: 56px;
     float:right;
-    /*width: 256px;*/
     height: 26px;
     overflow: hidden;
     -webkit-user-select:none;
@@ -72,7 +71,6 @@ body {
         vertical-align: middle;
         height: 24px;
         width: 56px;
-        /*width: 256px;*/
         border-radius: 15px;
         background: #CDCDCD;
         overflow: hidden;
