@@ -1,0 +1,60 @@
+.wrap {
+    background: #F7F7F7;
+    border: 1px solid #CCC;    
+    margin: 14px 4px 30px 4px;
+}
+.switcher {
+    color: #333;
+    font: normal 18px/26px Arial;
+    padding: 8px;
+    position: relative;
+}
+.switcher + .switcher {
+    border-top: 1px solid #CCC;
+}
+.switcher__text {
+    
+}
+.switcher__input {
+    height: 100%;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    width: 100%;
+}
+.switcher__label {
+    height: 26px;
+    position: absolute;
+    right: 8px;
+    top: 8px;
+    width: 56px;
+}
+.switcher__box {
+    background: #CDCDCD;
+    border-radius: 15px;
+    display: block;
+    height: 100%;
+    transition: background .3s;
+    width: 100%;
+}
+.switcher__roll {
+    background: #fff;
+    border-radius: 15px;
+    content: "";
+    display: block;
+    height: 18px;
+    left: 4px;
+    position: absolute;
+    transition: left .3s;
+    top: 4px;
+    width: 18px;
+}
+.switcher__input:checked + .switcher__box {
+    background: #1E5098;
+}
+.switcher__input:checked + .switcher__box .switcher__roll {
+    left: 34px
+}
