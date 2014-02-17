@@ -1,3 +1,24 @@
+html,body {
+    margin: 0;
+    padding: 0;
+}
+body {
+    font: 17px/24px "Open Sans",sans-serif;
+    background: #CDCDCD;
+    color: #666;
+}
+
+.menu {
+    background: #1E5098;
+    color: #f1f1f1;
+    text-align: center;
+    height: 36px;
+    padding-top: 8px;
+    font-size: 17px;
+    /*border-bottom: 4px solid #cdcdcd;*/
+}
+
+
 .wrap {
     background: #F7F7F7;
     border: 1px solid #CCC;    
