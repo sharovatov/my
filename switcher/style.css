@@ -81,7 +81,7 @@ body {
         -webkit-transform: translate3d(0, 0, 0) translateZ(0);
         -webkit-perspective: 1000;
 
-        transition-duration: .2s;
+        transition-duration: .25s;
         transition-property: padding, width, background-color;
     }
         /* circle handler */

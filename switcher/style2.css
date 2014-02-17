@@ -70,7 +70,7 @@ body {
     border-radius: 15px;
     display: block;
     height: 100%;
-    transition: background .2s;
+    transition: background .25s;
     width: 100%;
 }
 .switcher__roll {
@@ -81,7 +81,7 @@ body {
     height: 18px;
     left: 4px;
     position: absolute;
-    transition: left .3s;
+    transition: left .25s;
     top: 4px;
     width: 18px;
 }
