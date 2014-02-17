@@ -21,14 +21,27 @@ body {
 
 .wrap {
     background: #F7F7F7;
-    border: 1px solid #CCC;    
+    border: 1px solid #CCC;
     margin: 14px 4px 30px 4px;
+    position: relative;
 }
 .switcher {
-    color: #333;
-    font: normal 18px/26px Arial;
-    padding: 8px;
+    color: #666;
+    padding: 9px 8px 11px 8px;
     position: relative;
+    -webkit-user-select:none;
+    user-select: none;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+.wrap:after {
+    content: " ";
+    height: 3px;
+    display: block;
+    left: 3px;
+    right: 3px;
+    position: absolute;
+    bottom: -3px;
+    background: #bbb;
 }
 .switcher + .switcher {
     border-top: 1px solid #CCC;
