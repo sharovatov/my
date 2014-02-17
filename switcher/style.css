@@ -15,7 +15,6 @@ body {
     height: 36px;
     padding-top: 8px;
     font-size: 17px;
-    /*border-bottom: 4px solid #cdcdcd;*/
 }
 
 
@@ -41,8 +40,6 @@ body {
     overflow: auto;
     padding: 8px 8px 10px 8px;
     border-top: 1px solid #ccc;
-    /*height: 40px;*/
-    /*background: red;*/
 }
 
 .section__item:first-of-type {
@@ -84,20 +81,16 @@ body {
         -webkit-transform: translate3d(0, 0, 0) translateZ(0);
         -webkit-perspective: 1000;
 
-        transition-duration: .3s;
-        /*transition-timing-function: linear;*/
+        transition-duration: .2s;
         transition-property: padding, width, background-color;
     }
         /* circle handler */
         .niceSwitcher__handle__item {
             content: '';
             display: inline-block;
-            /*float: left;*/
             width: 18px; height: 18px;
             margin: 3px;
             /*margin-top: 3px;  24 = 18 + 3 + 3*/
-            /*margin-left: 3px;*/
-            /*margin-right: 3px;*/
             border-radius: inherit;
             background: white;
         }
@@ -106,8 +99,6 @@ body {
     /* handler has different style when is after checked checkbox */
     .niceSwitcher__input:checked + .niceSwitcher__handle {
         width: 24px;
-        /*width: 124px;*/
         padding-left: 32px;
-        /*padding-left:132px;*/
         background-color: #1E5098;
     }

@@ -15,7 +15,6 @@ body {
     height: 36px;
     padding-top: 8px;
     font-size: 17px;
-    /*border-bottom: 4px solid #cdcdcd;*/
 }
 
 
@@ -71,7 +70,7 @@ body {
     border-radius: 15px;
     display: block;
     height: 100%;
-    transition: background .3s;
+    transition: background .2s;
     width: 100%;
 }
 .switcher__roll {
